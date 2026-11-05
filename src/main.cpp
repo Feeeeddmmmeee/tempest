@@ -1,5 +1,4 @@
 /*
- 
 	   ⠀⠀⠀⠀⠀⠀⣀⡤⠖⠒⠦⢀⠀⠀⠀⠀⠀⠀
 	⠀⠀⠀⠀⢀⡴⣲⠶⠞⠅⠀⠀⠀⠀⠀⢻⠀⠀⠀⠀⠀
 	⠀⢀⠴⠊⠁⠛⠇⠀⠀⠀⠀⠀⠀⠀⠀⠸⠒⠒⠦⡀⠀
@@ -37,7 +36,7 @@ void usage(const char *prog)
 		<<"USAGE:\n"
 		<<"\t"<<prog<<" [OPTIONS]\n\n"
 		<<"OPTIONS:\n"
-		<<"\t-h, --help      Display help info\n"
+		<<"\t-h, --help      Display help information\n"
 		<<"\t-v, --version   Display version information\n";
 }
 
