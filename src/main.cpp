@@ -65,11 +65,11 @@ int main(int argc, char *argv[])
 
 	auto screen = ftxui::ScreenInteractive::Fullscreen();
 
-    auto renderer = ftxui::Renderer([&] {
-        return ftxui::text("Hello, World!") | ftxui::center;
-    });
+	auto renderer = ftxui::Renderer([&] {
+			return ftxui::text("Hello, World!") | ftxui::center;
+			});
 
-    screen.Loop(renderer);
+	screen.Loop(renderer);
 
 	return EXIT_SUCCESS;
 }
