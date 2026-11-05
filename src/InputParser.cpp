@@ -1,0 +1,32 @@
+#include "InputParser.h"
+
+InputParser::InputParser(int argc, char *argv[])
+{
+	for(int i = 1; i < argc; ++i)
+	{
+		std::string arg(argv[i]);
+		if(arg.starts_with('-'))
+		{
+			if(i + 1 < argc && !(std::string(argv[i+1]).starts_with('-')))
+			{
+				options[arg] = argv[++i];
+				continue;
+			}
+
+			options[arg] = "";
+		}
+	}
+}
+
+bool InputParser::has(const std::string &flag) const
+{
+	return options.find(flag) != options.end();
+}
+
+std::string InputParser::get(const std::string &flag) const
+{
+	auto it = options.find(flag);
+	if(it == options.end()) return "";
+	return it->second;
+}
+

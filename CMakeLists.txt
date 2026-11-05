@@ -1,12 +1,15 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(Tempest)
+project(tempest
+	VERSION 0.1.0
+)
 
 include(FetchContent)
 FetchContent_Declare(ftxui
   GIT_REPOSITORY https://github.com/ArthurSonzogni/ftxui
   GIT_TAG main # or a specific version like v7.0.3
 )
+
 FetchContent_MakeAvailable(ftxui)
 
 if ( NOT CMAKE_BUILD_TYPE )
@@ -22,6 +25,7 @@ string(TOLOWER ${CMAKE_BUILD_TYPE} build_type)
 
 # LSP support
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_CXX_STANDARD 20)
 
 file(GLOB_RECURSE SRC_FILES src/*.cpp)
 add_executable(${PROJECT_NAME} ${SRC_FILES})
@@ -40,4 +44,8 @@ target_compile_options(${PROJECT_NAME} PRIVATE
 
 target_link_options(${PROJECT_NAME} PRIVATE
     $<$<CONFIG:Debug>:${SANITIZER_FLAGS}>
+)
+
+target_compile_definitions(${PROJECT_NAME} PRIVATE
+	TEMPEST_VERSION="${PROJECT_VERSION}"
 )

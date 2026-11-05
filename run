@@ -2,4 +2,4 @@
 
 cmake -B build -DCMAKE_BUILD_TYPE=Release || exit 1
 make -C build || exit 1
-./build/Tempest
+./build/tempest
