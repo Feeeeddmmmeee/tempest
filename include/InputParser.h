@@ -8,6 +8,7 @@ class InputParser
 
 		bool has(const std::string &flag) const;
 		std::string get(const std::string &flag) const;
+		std::string getOr(const std::string &init, const std::string &flag) const;
 
 	private:
 		std::unordered_map<std::string, std::string> options;

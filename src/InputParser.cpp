@@ -30,3 +30,10 @@ std::string InputParser::get(const std::string &flag) const
 	return it->second;
 }
 
+std::string InputParser::getOr(const std::string &init, const std::string &flag) const
+{
+	if(has(flag))
+		return get(flag);
+
+	return init;
+}
