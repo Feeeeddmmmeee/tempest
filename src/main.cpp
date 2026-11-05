@@ -16,6 +16,8 @@
 
 #include "InputParser.h"
 
+#include <ftxui/ftxui.hpp>
+
 #include <cstdlib>
 #include <iostream>
 
@@ -60,4 +62,14 @@ int main(int argc, char *argv[])
 		version(argv[0]);
 		return EXIT_SUCCESS;
 	}
+
+	auto screen = ftxui::ScreenInteractive::Fullscreen();
+
+    auto renderer = ftxui::Renderer([&] {
+        return ftxui::text("Hello, World!") | ftxui::center;
+    });
+
+    screen.Loop(renderer);
+
+	return EXIT_SUCCESS;
 }
