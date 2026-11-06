@@ -23,6 +23,13 @@ bool InputParser::has(const std::string &flag) const
 	return options.find(flag) != options.end();
 }
 
+bool InputParser::hasValue(const std::string &flag) const
+{
+	auto it = options.find(flag);
+	if(it == options.end()) return 0;
+	return it->second != "";
+}
+
 std::string InputParser::get(const std::string &flag) const
 {
 	auto it = options.find(flag);
@@ -32,7 +39,7 @@ std::string InputParser::get(const std::string &flag) const
 
 std::string InputParser::getOr(const std::string &init, const std::string &flag) const
 {
-	if(has(flag))
+	if(hasValue(flag))
 		return get(flag);
 
 	return init;

@@ -21,7 +21,7 @@
 #include <cstdlib>
 #include <iostream>
 
-#ifdef DEBUG
+#ifdef TEMPEST_DEBUG
 #define LOG(msg) std::cout<<msg<<std::endl
 #else
 #define LOG(msg)
@@ -63,10 +63,12 @@ int main(int argc, char *argv[])
 		return EXIT_SUCCESS;
 	}
 
+	auto val = parser.getOr("default", "--val");
+
 	auto screen = ftxui::ScreenInteractive::Fullscreen();
 
 	auto renderer = ftxui::Renderer([&] {
-			return ftxui::text("Hello, World!") | ftxui::center;
+			return ftxui::text(val) | ftxui::center;
 			});
 
 	screen.Loop(renderer);

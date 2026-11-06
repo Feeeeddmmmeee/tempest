@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 cmake -B build -DCMAKE_BUILD_TYPE=Debug || exit 1
-make -C build || exit 1
+make -j 8 -C build || exit 1
 ./build/tempest

@@ -37,7 +37,7 @@ target_include_directories(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME} PRIVATE ftxui::ftxui)
 
 target_compile_options(${PROJECT_NAME} PRIVATE
-	$<$<CONFIG:Debug>:-DDEBUG -Wshadow -Wall -g -fsignaling-nans -fnon-call-exceptions -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC>
+	$<$<CONFIG:Debug>:-DTEMPEST_DEBUG -Wshadow -Wall -g -fsignaling-nans -fnon-call-exceptions -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC>
 	$<$<CONFIG:Debug>:${SANITIZER_FLAGS}>
 	$<$<CONFIG:Release>:-O3>
 )
