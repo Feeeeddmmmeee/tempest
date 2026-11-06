@@ -44,3 +44,13 @@ std::string InputParser::getOr(const std::string &init, const std::string &flag)
 
 	return init;
 }
+
+std::string InputParser::getOr(const std::string &init, const std::string &flag, const std::string &flag2) const
+{
+	if(hasValue(flag))
+		return get(flag);
+	if(hasValue(flag2))
+		return get(flag2);
+
+	return init;
+}
