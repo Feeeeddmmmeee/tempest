@@ -4,13 +4,7 @@ project(tempest
 	VERSION 0.1.0
 )
 
-include(FetchContent)
-FetchContent_Declare(ftxui
-  GIT_REPOSITORY https://github.com/ArthurSonzogni/ftxui
-  GIT_TAG main # or a specific version like v7.0.3
-)
-
-FetchContent_MakeAvailable(ftxui)
+find_package(Notcurses REQUIRED)
 
 if ( NOT CMAKE_BUILD_TYPE )
 	message("Build type not set, defaulting to Debug...")
@@ -34,7 +28,7 @@ target_include_directories(${PROJECT_NAME}
 	PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE ftxui::ftxui)
+target_link_libraries(${PROJECT_NAME} PRIVATE notcurses-core)
 
 target_compile_options(${PROJECT_NAME} PRIVATE
 	$<$<CONFIG:Debug>:-DTEMPEST_DEBUG -Wshadow -Wall -g -fsignaling-nans -fnon-call-exceptions -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC>
