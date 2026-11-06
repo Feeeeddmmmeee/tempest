@@ -15,17 +15,10 @@
 */
 
 #include "InputParser.h"
-
-#include <ftxui/ftxui.hpp>
+#include "Simulation.h"
 
 #include <cstdlib>
 #include <iostream>
-
-#ifdef TEMPEST_DEBUG
-#define LOG(msg) std::cout<<msg<<std::endl
-#else
-#define LOG(msg)
-#endif
 
 #ifndef TEMPEST_VERSION
 #define TEMPEST_VERSION "unknown"
@@ -50,6 +43,8 @@ void version(const char *prog)
 int main(int argc, char *argv[])
 {
 	InputParser parser(argc, argv);
+	std::string raw;
+	SimSpec spec;
 
 	if(parser.has("--help") || parser.has("-h"))
 	{
@@ -63,15 +58,24 @@ int main(int argc, char *argv[])
 		return EXIT_SUCCESS;
 	}
 
-	auto val = parser.getOr("default", "--val");
+	raw = parser.getOr("100", "--speed", "-s");
+	try { spec.speed = std::stoi(raw); }
+	catch (...) 
+	{
+		std::cerr<<"Failed to parse value given to --speed: "<<raw<<", it must be a number!"<<std::endl;
+		return EXIT_FAILURE;
+	}
 
-	auto screen = ftxui::ScreenInteractive::Fullscreen();
+	raw = parser.getOr("100", "--drops", "-d");
+	try { spec.numDrops = std::stoi(raw); }
+	catch (...) 
+	{
+		std::cerr<<"Failed to parse value given to --drops: "<<raw<<", it must be a number!"<<std::endl;
+		return EXIT_FAILURE;
+	}
 
-	auto renderer = ftxui::Renderer([&] {
-			return ftxui::text(val) | ftxui::center;
-			});
-
-	screen.Loop(renderer);
+	Simulation sim(spec);
+	sim.run();
 
 	return EXIT_SUCCESS;
 }
