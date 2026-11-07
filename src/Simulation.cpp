@@ -101,7 +101,7 @@ void Simulation::renderRain(Timestep dt)
 		int x = drop.x;
 		int y = drop.y;
 
-		if(x >= 0 && x < width && y >= 0 && y < height)
+		if(x >= 0 && x < (int)width && y >= 0 && y < (int)height)
 		{
 			auto [r,g,b] = getDropColor(drop);
 			ncplane_set_fg_rgb8(plane, r, g, b);
