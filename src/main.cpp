@@ -27,12 +27,12 @@
 void usage(const char *prog)
 {
 	std::cout
-		<<prog<<" - Terminal rain simulator\n\n"
-		<<"USAGE:\n"
-		<<"\t"<<prog<<" [OPTIONS]\n\n"
-		<<"OPTIONS:\n"
-		<<"\t-h, --help      Display help information\n"
-		<<"\t-v, --version   Display version information\n";
+		<<"A thunderstorm simulation in your terminal!\n\n"
+		<<"Usage:\n"
+		<<"  "<<prog<<" [OPTIONS]\n\n"
+		<<"Options:\n"
+		<<"  -h, --help      Display help information\n"
+		<<"  -v, --version   Display version information\n";
 }
 
 void version(const char *prog)
