@@ -118,6 +118,7 @@ void Simulation::renderText(Timestep dt)
 	ncplane_printf_yx(plane, 2, 0, "Speed range: %d", spec.speedRange);
 	ncplane_printf_yx(plane, 3, 0, "Density: %d", spec.rainDensity);
 	ncplane_printf_yx(plane, 3, 0, "Charset: %s", spec.dropChars.c_str());
+	ncplane_printf_yx(plane, 4, 0, "Drop count: %lu", drops.size());
 }
 
 void Simulation::initNC()
