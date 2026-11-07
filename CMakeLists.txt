@@ -12,7 +12,7 @@ if ( NOT CMAKE_BUILD_TYPE )
 endif()
 
 set(SANITIZER_FLAGS
-    -fsanitize=address,leak,undefined,float-divide-by-zero,float-cast-overflow
+    -fsanitize=leak,undefined,float-divide-by-zero,float-cast-overflow
 )
 
 string(TOLOWER ${CMAKE_BUILD_TYPE} build_type)

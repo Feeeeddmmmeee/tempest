@@ -1,9 +1,11 @@
+#pragma once
+
 #include <chrono>
 
 class Timestep
 {
 	public:
-		Timestep(float time = 0) : time(time) {}
+		Timestep(float t= 0) : time(t) {}
 
 		inline operator float() const { return time; }
 		inline float seconds() const { return time; }
