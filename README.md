@@ -5,12 +5,13 @@
   ![GitHub last commit](https://img.shields.io/github/last-commit/feeeeddmmmeee/tempest?style=for-the-badge&logoColor=%2366668D&labelColor=%23230f0f10&color=%2366668D)
   ![GitHub Repo stars](https://img.shields.io/github/stars/feeeeddmmmeee/tempest?style=for-the-badge&logoColor=%2366668D&labelColor=%23230f0f10&color=%2366668D)
 
-  
   <b>A thunderstorm simulation in your terminal!</b> Written in C++ and Notcurses
 </div>
 <br>
 
 Tempest is a command line application that generates cozy rain simulations with an occasional lightning flash right in your terminal emulator of choice while being fully customizable through CLI options.
+
+<img width="1280" height="720" alt="tempest" src="https://github.com/user-attachments/assets/07d29a15-0301-4512-a58c-46d44d8e71b3" />
 
 ## 🚀 Installation / Building from source
 As of now to install and use the program you have to build it yourself. Start off by cloning the repository to your local machine and making sure you have all the [required dependencies](#-Dependencies):
