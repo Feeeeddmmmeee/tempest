@@ -21,7 +21,7 @@ cd tempest
 ```
 Then run one of the built in scripts to build the project and execute the binary:
 ```sh
-./run # or ./debug - both are valid build scripts (though run is preferred for standard use)
+./release-build # or ./debug-build - both are valid build scripts (though release is preferred for standard use)
 ./build/tempest
 ```
 
