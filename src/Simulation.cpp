@@ -76,7 +76,7 @@ void Simulation::update(Timestep dt)
 			drop.y = 0.0f;
 			drop.speed = rng.real(
 					std::max(1,spec.speed - spec.speedRange),
-					spec.speed + spec.speedRange
+					std::max(1,spec.speed + spec.speedRange)
 					);
 		}
 	}
@@ -144,7 +144,7 @@ void Simulation::initSim()
 		drops.emplace_back(
 				rng.real(0, width-1),
 				rng.real(0, height),
-				rng.real(std::max(1, spec.speed-spec.speedRange), spec.speed+spec.speedRange)
+				rng.real(std::max(1, spec.speed-spec.speedRange), std::max(1, spec.speed+spec.speedRange))
 				);
 	}
 }
@@ -175,7 +175,7 @@ std::tuple<int,int,int> Simulation::getDropColor(const Raindrop &drop)
 	int r = 230, g = 230, b = 255;
 	float minTint = .6f, maxTint = 1;
 
-	float lerp = std::max(0.0f, std::min(1.0f, (drop.speed - (float)(spec.speed - spec.speedRange))/2.0f/(float)spec.speedRange));
+	float lerp = std::max(0.0f, std::min(1.0f, (drop.speed - (float)(spec.speed - spec.speedRange))/2.0f/(float)std::max(1,spec.speedRange)));
 	float moved = minTint + lerp * (maxTint - minTint);
 
 	return {r*moved, g*moved, b*moved};
