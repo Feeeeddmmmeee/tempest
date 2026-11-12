@@ -31,14 +31,14 @@ void usage(const char *prog)
 		<<"Usage:\n"
 		<<"  "<<prog<<" [options]\n\n"
 		<<"Options:\n"
-		<<"  -h, --help              Display help information\n"
-		<<"  -v, --version           Display version information\n"
-		<<"  -t, --debug             Render debug information\n"
-		<<"  -d, --drops [density]   Controls how strong the rain will be\n"
-		<<"  -s, --speed [value]     Sets the average raindrop speed\n"
-		<<"  -r, --range [value]     Controls how much drops can deviate from the average speed\n"
-		<<"  -c, --chars [string]    Specifies the characters to be used for raindrops\n"
-		<<"  -f, --fps [value]       Controls the max/target fps\n"
+		<<"  -h, --help                  Display help information\n"
+		<<"  -v, --version               Display version information\n"
+		<<"  -t, --debug                 Render debug information (press d to toggle)\n"
+		<<"  -d, --drops <density>       Controls how strong the rain will be\n"
+		<<"  -s, --speed <value>         Sets the average raindrop speed\n"
+		<<"  -r, --range <value>         Controls how much drops can deviate from the average speed\n"
+		<<"  -c, --chars <string>        Specifies the characters to be used for raindrops\n"
+		<<"  -f, --frame-delay <ms>   Controls the target amount of ms between simulation steps/frames\n"
 		;
 }
 
@@ -94,15 +94,15 @@ int main(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 
-	raw = parser.getOr("60", "--fps", "-f");
-	int fps;
-	try { fps = std::stoi(raw); }
+	raw = parser.getOr("15", "--frame-delay", "-f");
+	int delay;
+	try { delay = std::stoi(raw); }
 	catch (...) 
 	{
 		std::cerr<<"Failed to parse value given to --fps: "<<raw<<", it must be a number!"<<std::endl;
 		return EXIT_FAILURE;
 	}
-	spec.targetFrameTime = 1000 / fps;
+	spec.targetFrameTime = delay;
 
 	spec.dropChars = parser.getOr("|:.", "--chars", "-c");
 
