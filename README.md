@@ -9,7 +9,7 @@
 </div>
 <br>
 
-Tempest is a command line application that generates cozy rain simulations with an occasional lightning flash right in your terminal emulator of choice while being fully customizable through CLI options.
+Tempest is a command line application that generates cozy rain simulations with an occasional lightning flash (TODO!) right in your terminal emulator of choice while being fully customizable through CLI options.
 
 <img width="1280" height="720" alt="tempest" src="https://github.com/user-attachments/assets/07d29a15-0301-4512-a58c-46d44d8e71b3" />
 
